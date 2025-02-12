@@ -41,11 +41,12 @@ const Navbar = () => {
             Transações
           </Link>
         </div>
-
-        <UserButton showName />
       </div>
 
-      <MobileMenu />
+      <div className="flex items-center gap-4">
+        <MobileMenu />
+        <UserButton />
+      </div>
     </nav>
   );
 };
