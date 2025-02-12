@@ -10,11 +10,14 @@ export const getDashboard = async (month: string) => {
     throw new Error("Unauthorized");
   }
 
+  const currentYear = new Date().getFullYear();
+  const monthIndex = Number(month) - 1;
+
   const where = {
     userId,
     date: {
-      gte: new Date(`2024-${month}-01`),
-      lt: new Date(`2024-${month}-31`),
+      gte: new Date(currentYear, monthIndex, 1),
+      lt: new Date(currentYear, monthIndex + 1, 1),
     },
   };
 
@@ -53,15 +56,23 @@ export const getDashboard = async (month: string) => {
     )._sum.amount,
   );
 
+  const calculatePercentage = (value: number, total: number): number =>
+    total === 0 ? 0 : Math.round((value / total) * 100);
+
+  const transactionsTotalNumber = Number(transactionsTotal);
+
   const typesPercentage: TransactionPercentagePerType = {
-    [TransactionType.DEPOSIT]: Math.round(
-      (Number(depositsTotal || 0) / Number(transactionsTotal)) * 100,
+    [TransactionType.DEPOSIT]: calculatePercentage(
+      Number(depositsTotal),
+      transactionsTotalNumber,
     ),
-    [TransactionType.EXPENSE]: Math.round(
-      (Number(expensesTotal || 0) / Number(transactionsTotal)) * 100,
+    [TransactionType.EXPENSE]: calculatePercentage(
+      Number(expensesTotal),
+      transactionsTotalNumber,
     ),
-    [TransactionType.INVESTMENT]: Math.round(
-      (Number(investmentsTotal || 0) / Number(transactionsTotal)) * 100,
+    [TransactionType.INVESTMENT]: calculatePercentage(
+      Number(investmentsTotal),
+      transactionsTotalNumber,
     ),
   };
 
@@ -76,13 +87,17 @@ export const getDashboard = async (month: string) => {
         amount: true,
       },
     })
-  ).map((category) => ({
-    category: category.category,
-    totalAmount: Number(category._sum.amount),
-    percentageOfTotal: Math.round(
+  ).map((category) => {
+    const percentageOfTotal = Math.round(
       (Number(category._sum.amount) / Number(expensesTotal)) * 100,
-    ),
-  }));
+    );
+
+    return {
+      category: category.category,
+      totalAmount: Number(category._sum.amount),
+      percentageOfTotal: isNaN(percentageOfTotal) ? 0 : percentageOfTotal,
+    };
+  });
 
   const lastTransactions = await db.transaction.findMany({
     where,
