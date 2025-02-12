@@ -43,10 +43,10 @@ const LastTransactions = ({ lastTransactions }: LastTransactionsProps) => {
         {lastTransactions.map((transaction) => (
           <div
             key={transaction.id}
-            className="flex flex-col items-center justify-between xs:flex-row"
+            className="flex flex-col justify-between xs:flex-row xs:items-center"
           >
             <div className="flex items-center gap-3">
-              <div className="rounded-lg bg-white bg-opacity-[3%] p-3 text-white">
+              <div className="hidden rounded-lg bg-white bg-opacity-[3%] p-3 text-white xs:block">
                 <Image
                   src={`/${TRANSACTION_PAYMENT_METHOD_ICONS[transaction.paymentMethod]}`}
                   height={20}
@@ -65,9 +65,7 @@ const LastTransactions = ({ lastTransactions }: LastTransactionsProps) => {
                 </p>
               </div>
             </div>
-            <p
-              className={`self-end text-sm font-bold xs:self-start ${getAmountColor(transaction)}`}
-            >
+            <p className={`text-sm font-bold ${getAmountColor(transaction)}`}>
               {getAmountPrefix(transaction)}
               {formatCurrency(Number(transaction.amount))}
             </p>

@@ -4,7 +4,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { UserButton } from "@clerk/nextjs";
 import { Menu } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -41,10 +40,6 @@ const MobileMenu = () => {
           >
             Transações
           </Link>
-        </DropdownMenuItem>
-
-        <DropdownMenuItem>
-          <UserButton showName />
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

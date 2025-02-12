@@ -253,7 +253,7 @@ const UpsertTransactionDialog = ({
                 </FormItem>
               )}
             />
-            <DialogFooter>
+            <DialogFooter className="gap-4 sm:gap-0">
               <DialogClose asChild>
                 <Button type="button" variant="outline">
                   Cancelar

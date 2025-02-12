@@ -4,7 +4,7 @@ import { transactionColumns } from "./_columns";
 import AddTransactionButton from "@/components/add-transaction-button";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 const TransactionsPage = async () => {
   const { userId } = await auth();
@@ -25,6 +25,7 @@ const TransactionsPage = async () => {
       </div>
       <ScrollArea>
         <DataTable columns={transactionColumns} data={transactions} />
+        <ScrollBar orientation="horizontal" />
       </ScrollArea>
     </div>
   );
