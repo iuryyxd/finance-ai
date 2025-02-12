@@ -1,25 +1,24 @@
-"use client";
-
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { UserButton } from "@clerk/nextjs";
-import Image from "next/image";
+import { Menu } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import MobileMenu from "./mobile-menu";
 
-const Navbar = () => {
+const MobileMenu = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="flex justify-between border-b border-solid px-8 py-4 md:justify-normal">
-      <Image
-        src="/logo.svg"
-        width={133}
-        height={39}
-        alt="finance ai"
-        className="mr-10"
-      />
-      <div className="hidden items-center justify-between md:flex md:flex-1">
-        <div className="hidden items-center gap-4 md:flex">
+    <DropdownMenu>
+      <DropdownMenuTrigger>
+        <Menu size={24} className="block text-white md:hidden" />
+      </DropdownMenuTrigger>
+      <DropdownMenuContent>
+        <DropdownMenuItem>
           <Link
             href="/"
             className={
@@ -30,6 +29,8 @@ const Navbar = () => {
           >
             Dashboard
           </Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem>
           <Link
             href="/transactions"
             className={
@@ -40,14 +41,14 @@ const Navbar = () => {
           >
             Transações
           </Link>
-        </div>
+        </DropdownMenuItem>
 
-        <UserButton showName />
-      </div>
-
-      <MobileMenu />
-    </nav>
+        <DropdownMenuItem>
+          <UserButton showName />
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 };
 
-export default Navbar;
+export default MobileMenu;
