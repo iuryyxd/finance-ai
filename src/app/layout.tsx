@@ -3,6 +3,7 @@ import { Mulish } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
+import Navbar from "@/components/navbar";
 
 export const metadata: Metadata = {
   title: "Finance AI",
@@ -26,7 +27,10 @@ export default function RootLayout({
             baseTheme: dark,
           }}
         >
-          <div className="flex h-full flex-col overflow-hidden">{children}</div>
+          <div className="flex h-full flex-col overflow-hidden">
+            <Navbar />
+            {children}
+          </div>
         </ClerkProvider>
       </body>
     </html>
