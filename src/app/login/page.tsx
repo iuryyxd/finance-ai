@@ -13,9 +13,8 @@ const LoginPage = async () => {
   }
 
   return (
-    <div className="grid h-full grid-cols-2">
-      {/* ESQUERDA */}
-      <div className="mx-auto flex h-full max-w-[550px] flex-col justify-center p-8">
+    <div className="grid h-full grid-cols-1 md:grid-cols-2">
+      <div className="mx-auto flex h-full max-w-full flex-col justify-center p-8 md:max-w-[550px]">
         <Image
           src="/logo.svg"
           width={173}
@@ -36,13 +35,13 @@ const LoginPage = async () => {
           </Button>
         </SignInButton>
       </div>
-      {/* DIREITA */}
+
       <div className="relative h-full w-full">
         <Image
           src="/login.png"
           alt="Faça login"
           fill
-          className="object-cover"
+          className="hidden object-cover md:block"
         />
       </div>
     </div>
