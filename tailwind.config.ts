@@ -9,6 +9,10 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        "2xl": "1400px",
+        xs: "425px",
+      },
       colors: {
         danger: "#F6352E",
         background: "hsl(var(--background))",

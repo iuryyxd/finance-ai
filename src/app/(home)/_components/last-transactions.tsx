@@ -31,8 +31,10 @@ const LastTransactions = ({ lastTransactions }: LastTransactionsProps) => {
 
   return (
     <ScrollArea className="rounded-md border">
-      <CardHeader className="flex-row items-center justify-between">
-        <CardTitle className="font-bold">Últimas Transações</CardTitle>
+      <CardHeader className="flex-col gap-3 xs:flex-row xs:items-center xs:justify-between xs:gap-0">
+        <CardTitle className="text-xl font-bold xs:text-2xl">
+          Últimas Transações
+        </CardTitle>
         <Button variant="outline" className="rounded-full font-bold" asChild>
           <Link href="/transactions">Ver mais</Link>
         </Button>
@@ -41,7 +43,7 @@ const LastTransactions = ({ lastTransactions }: LastTransactionsProps) => {
         {lastTransactions.map((transaction) => (
           <div
             key={transaction.id}
-            className="flex items-center justify-between"
+            className="flex flex-col items-center justify-between xs:flex-row"
           >
             <div className="flex items-center gap-3">
               <div className="rounded-lg bg-white bg-opacity-[3%] p-3 text-white">
@@ -63,7 +65,9 @@ const LastTransactions = ({ lastTransactions }: LastTransactionsProps) => {
                 </p>
               </div>
             </div>
-            <p className={`text-sm font-bold ${getAmountColor(transaction)}`}>
+            <p
+              className={`self-end text-sm font-bold xs:self-start ${getAmountColor(transaction)}`}
+            >
               {getAmountPrefix(transaction)}
               {formatCurrency(Number(transaction.amount))}
             </p>

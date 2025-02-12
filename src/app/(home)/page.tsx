@@ -26,15 +26,15 @@ const Home = async ({ searchParams }: HomeProps) => {
   const dashboard = await getDashboard(month);
 
   return (
-    <div className="flex flex-col space-y-6 overflow-hidden p-6">
-      <div className="flex justify-between">
+    <div className="flex flex-col space-y-6 p-6 2xl:overflow-hidden">
+      <div className="flex flex-col justify-between gap-5 2xl:flex-row 2xl:gap-0">
         <h1 className="text-2xl font-bold">Dashboard</h1>
         <TimeSelect />
       </div>
-      <div className="grid grid-cols-[2fr,1fr] gap-6 overflow-hidden">
-        <div className="flex flex-col gap-6 overflow-hidden">
+      <div className="grid grid-cols-1 gap-6 2xl:grid-cols-[2fr,1fr] 2xl:overflow-hidden">
+        <div className="flex w-full flex-col gap-6 overflow-auto 2xl:overflow-hidden">
           <SummaryCards {...dashboard} />
-          <div className="grid h-full grid-cols-3 grid-rows-1 gap-6 overflow-hidden">
+          <div className="grid grid-cols-1 gap-y-6 overflow-auto lg:grid-cols-3 lg:gap-6 lg:overflow-hidden">
             <TransactionsPieChart {...dashboard} />
             <ExpensesPerCategory
               expensesPerCategory={dashboard.totalExpensePerCategory}

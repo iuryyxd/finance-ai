@@ -14,7 +14,9 @@ const ExpensesPerCategory = ({
   return (
     <ScrollArea className="col-span-2 h-full rounded-md border pb-6">
       <CardHeader>
-        <CardTitle className="font-bold">Gastos por Categoria</CardTitle>
+        <CardTitle className="text-xl font-bold xs:text-2xl">
+          Gastos por Categoria
+        </CardTitle>
       </CardHeader>
 
       <CardContent className="space-y-6">

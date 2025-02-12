@@ -27,7 +27,7 @@ export default function RootLayout({
             baseTheme: dark,
           }}
         >
-          <div className="flex h-full flex-col overflow-hidden">
+          <div className="flex h-full flex-col overflow-auto 2xl:overflow-hidden">
             <Navbar />
             {children}
           </div>
