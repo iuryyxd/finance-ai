@@ -18,8 +18,8 @@ const TransactionsPage = async () => {
   });
 
   return (
-    <div className="space-y-6 overflow-hidden p-6">
-      <div className="flex w-full items-center justify-between">
+    <div className="space-y-6 overflow-auto p-6 lg:overflow-hidden">
+      <div className="flex w-full flex-col gap-6 xs:flex-row xs:items-center xs:justify-between xs:gap-0">
         <h1 className="text-2xl font-bold">Transações</h1>
         <AddTransactionButton />
       </div>
