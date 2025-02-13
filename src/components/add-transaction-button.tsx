@@ -9,7 +9,7 @@ const AddTransactionButton = () => {
   const [dialogIsOpen, setDialogIsOpen] = useState(false);
 
   return (
-    <>
+    <UpsertTransactionDialog isOpen={dialogIsOpen} setIsOpen={setDialogIsOpen}>
       <Button
         className="rounded-full font-bold"
         onClick={() => setDialogIsOpen(true)}
@@ -17,11 +17,7 @@ const AddTransactionButton = () => {
         Adicionar transação
         <ArrowDownUpIcon />
       </Button>
-      <UpsertTransactionDialog
-        isOpen={dialogIsOpen}
-        setIsOpen={setDialogIsOpen}
-      />
-    </>
+    </UpsertTransactionDialog>
   );
 };
 
