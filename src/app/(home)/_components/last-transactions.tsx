@@ -40,6 +40,11 @@ const LastTransactions = ({ lastTransactions }: LastTransactionsProps) => {
         </Button>
       </CardHeader>
       <CardContent className="space-y-6">
+        {lastTransactions.length === 0 && (
+          <div className="mt-auto flex flex-col items-center justify-center gap-4 opacity-60">
+            Não há transações para esse mês
+          </div>
+        )}
         {lastTransactions.map((transaction) => (
           <div
             key={transaction.id}

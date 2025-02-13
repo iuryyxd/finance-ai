@@ -19,7 +19,12 @@ const ExpensesPerCategory = ({
         </CardTitle>
       </CardHeader>
 
-      <CardContent className="space-y-6">
+      <CardContent className="h-full space-y-6">
+        {expensesPerCategory.length === 0 && (
+          <div className="mt-auto flex flex-col items-center justify-center gap-4 opacity-60">
+            Não há gastos por categoria
+          </div>
+        )}
         {expensesPerCategory.map((category) => (
           <div key={category.category} className="space-y-2">
             <div className="flex w-full justify-between">

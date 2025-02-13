@@ -69,7 +69,9 @@ export function DataTable<TData, TValue>({
           ) : (
             <TableRow>
               <TableCell colSpan={columns.length} className="h-24 text-center">
-                No results.
+                <div className="mt-auto flex flex-col items-center justify-center gap-4 opacity-60">
+                  Adicione uma transação para aparecer aqui
+                </div>
               </TableCell>
             </TableRow>
           )}
