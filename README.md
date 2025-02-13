@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
+<img src="public/logo.svg" alt="Logo" width="100">
 
-## Getting Started
+### Finance.ai
 
-First, run the development server:
+🚀 Plataforma para organização e controle de finanças, desenvolvida durante a FullStackWeek.
+</div>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📌 Sobre o Projeto
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+O **Finance.ai** é uma aplicação web voltada para o gerenciamento financeiro, permitindo que os usuários acompanhem suas receitas, despesas e investimentos de maneira intuitiva.  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Com um sistema de login seguro utilizando **ClerkJS**, a plataforma oferece uma **dashboard interativa** que apresenta:
 
-## Learn More
+✅ **Gastos, depósitos e investimentos** organizados de forma clara  
+✅ **Categorias mais gastas**, ajudando no planejamento financeiro  
+✅ **Funcionalidade completa de transações**: adicionar, editar e excluir operações financeiras  
+✅ **Tabela detalhada de transações**, com todas as informações organizadas e fáceis de acessar  
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🚀 Tecnologias Utilizadas
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+O projeto foi desenvolvido utilizando as seguintes tecnologias:
 
-## Deploy on Vercel
+[![React][React.js]][React-url]
+[![Typescript][Typescript]][Typescript-url]
+[![Tailwind][Tailwind]][Tailwind-url]
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🎨 Demonstração
+
+🔗 [Acesse a Demo do projeto](https://finance-ai-orcin.vercel.app/)  
+
+---
+
+<!-- CONTACT -->
+
+## Contato
+
+Caso tenha interesse ou dúvidas, sinta-se à vontade para entrar em [contato](https://www.linkedin.com/in/iurysena/)! 🚀
+
+<!-- MARKDOWN LINKS & IMAGES -->
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React-url]: https://reactjs.org/
+[Demo]: https://img.shields.io/badge/Demo-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[Demo-url]: [https://noteme.vercel.app/](https://finance-ai-orcin.vercel.app/)
+[Typescript]: https://img.shields.io/badge/Typescript-20232A?style=for-the-badge&logo=typescript&logoColor=61DAFB
+[Typescript-url]: https://www.typescriptlang.org/
+[Tailwind]: https://img.shields.io/badge/Tailwindcss-20232A?style=for-the-badge&logo=tailwindcss&logoColor=61DAFB
+[Tailwind-url]: https://tailwindcss.com/
