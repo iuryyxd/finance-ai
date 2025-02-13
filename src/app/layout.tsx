@@ -4,6 +4,7 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 import Navbar from "@/components/navbar";
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "Finance AI",
@@ -31,6 +32,7 @@ export default function RootLayout({
             <Navbar />
             {children}
           </div>
+          <Toaster />
         </ClerkProvider>
       </body>
     </html>

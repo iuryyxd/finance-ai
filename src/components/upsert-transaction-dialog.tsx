@@ -41,12 +41,15 @@ import {
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { upsertTransaction } from "@/actions/upsert-transaction";
+import { ReactNode, useEffect } from "react";
+import { useToast } from "@/hooks/use-toast";
 
 interface UpsertTransactionDialogProps {
   isOpen: boolean;
   defaultValues?: FormSchema;
   transactionId?: string;
   setIsOpen: (isOpen: boolean) => void;
+  children: ReactNode;
 }
 
 const formSchema = z.object({
@@ -81,10 +84,11 @@ const UpsertTransactionDialog = ({
   defaultValues,
   transactionId,
   setIsOpen,
+  children,
 }: UpsertTransactionDialogProps) => {
   const form = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
-    defaultValues: defaultValues ?? {
+    defaultValues: {
       amount: 50,
       category: TransactionCategory.OTHER,
       date: new Date(),
@@ -94,17 +98,35 @@ const UpsertTransactionDialog = ({
     },
   });
 
+  const { toast } = useToast();
+  const isUpdate = Boolean(transactionId);
   const onSubmit = async (data: FormSchema) => {
     try {
       await upsertTransaction({ ...data, id: transactionId });
       setIsOpen(false);
+
       form.reset();
+      toast({
+        title: `Transação ${isUpdate ? "atualizada" : "adicionada"} com sucesso!`,
+        variant: "success",
+      });
     } catch (error) {
       console.error(error);
+      toast({
+        title: "Não foi possível criar essa transação!",
+        variant: "destructive",
+      });
     }
   };
 
-  const isUpdate = Boolean(transactionId);
+  useEffect(() => {
+    if (isUpdate) {
+      form.reset({
+        ...defaultValues,
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen]);
 
   return (
     <Dialog
@@ -116,7 +138,7 @@ const UpsertTransactionDialog = ({
         }
       }}
     >
-      <DialogTrigger asChild></DialogTrigger>
+      <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="max-h-full overflow-y-auto">
         <DialogHeader>
           <DialogTitle>

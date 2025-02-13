@@ -14,7 +14,15 @@ const EditTransactionButton = ({ transaction }: EditTransactionButtonProps) => {
   const [dialogIsOpen, setDialogIsOpen] = useState(false);
 
   return (
-    <>
+    <UpsertTransactionDialog
+      isOpen={dialogIsOpen}
+      setIsOpen={setDialogIsOpen}
+      defaultValues={{
+        ...transaction,
+        amount: Number(transaction.amount),
+      }}
+      transactionId={transaction.id}
+    >
       <Button
         variant="ghost"
         size="icon"
@@ -23,16 +31,7 @@ const EditTransactionButton = ({ transaction }: EditTransactionButtonProps) => {
       >
         <PencilIcon />
       </Button>
-      <UpsertTransactionDialog
-        isOpen={dialogIsOpen}
-        setIsOpen={setDialogIsOpen}
-        defaultValues={{
-          ...transaction,
-          amount: Number(transaction.amount),
-        }}
-        transactionId={transaction.id}
-      />
-    </>
+    </UpsertTransactionDialog>
   );
 };
 
