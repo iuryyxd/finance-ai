@@ -18,6 +18,7 @@ Com um sistema de login seguro utilizando **ClerkJS**, a plataforma oferece uma 
 ✅ **Categorias mais gastas**, ajudando no planejamento financeiro  
 ✅ **Funcionalidade completa de transações**: adicionar, editar e excluir operações financeiras  
 ✅ **Tabela detalhada de transações**, com todas as informações organizadas e fáceis de acessar  
+✅ **Responsivo**, o site se comporta bem em diferentes dispositivos
 
 ---
 
