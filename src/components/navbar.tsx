@@ -5,12 +5,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import MobileMenu from "./mobile-menu";
+import { cn } from "@/lib/utils";
 
 const Navbar = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="flex justify-between border-b border-solid px-8 py-4 md:justify-normal">
+    <nav
+      className={cn(
+        "flex justify-between border-b border-solid px-8 py-4 md:justify-normal",
+        {
+          ["hidden"]: pathname === "/login",
+        },
+      )}
+    >
       <Image
         src="/logo.svg"
         width={133}
