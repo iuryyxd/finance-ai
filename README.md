@@ -12,7 +12,7 @@
 
 O **Finance.ai** é uma aplicação web voltada para o gerenciamento financeiro, permitindo que os usuários acompanhem suas receitas, despesas e investimentos de maneira intuitiva.  
 
-Com um sistema de login seguro utilizando **ClerkJS**, a plataforma oferece uma **dashboard interativa** que apresenta:
+Com o sistema de autenticação do **ClerkJS**, a plataforma oferece uma **dashboard** que apresenta:
 
 ✅ **Gastos, depósitos e investimentos** organizados de forma clara  
 ✅ **Categorias mais gastas**, ajudando no planejamento financeiro  
